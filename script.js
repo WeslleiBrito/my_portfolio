@@ -9,33 +9,41 @@ class HeaderComponent extends HTMLElement {
         /*  essa variavel armazena nome do arquivo html, 
             peciso para poder estilizar os elementos da lista
         */
-        const paginaAtual = window.location.pathname.split('/').pop()
+        const paginaAtual = window.location.pathname.split('/').pop().split('.')[0]
         const listaPath = window.location.pathname.split('/')
+        alert(`>>> ${paginaAtual} <<<`)
+       
         // 🖨️ definindo a lista de itens do menu 🖨️ 
         const menuItens = [
             {
                 nome: "Sobre mim",
-                href: "index.html"
+                href: "index"
             },
             {
                 nome: "Formação",
-                href: "formacao.html"
+                href: "formacao"
             },
             {
                 nome: "Portfólio",
-                href: "portfolio.html"
+                href: "portfolio"
             },
             {
                 nome: "Contato",
-                href: "contato.html"
+                href: "contato"
             }
         ]
 
         /* Para tornar a mudança do titulo da página dinamica inserir essa lógica que identifica a
            posição do nome do documento  
         */
-       
-        document.title = menuItens[menuItens.findIndex(item => item.href === paginaAtual)].nome
+        const index = menuItens.findIndex(item => item.href === paginaAtual)
+
+        if(index){
+            document.title = menuItens[index].nome
+        }else{
+            document.title = menuItens[0].nome
+        }
+        
 
         // ⚙️ Gerando os itens da lista separadamente ⚙️
 
