@@ -10,7 +10,7 @@ class HeaderComponent extends HTMLElement {
             peciso para poder estilizar os elementos da lista
         */
         const paginaAtual = window.location.pathname.split('/').pop()
-        console.log(paginaAtual)
+        const listaPath = window.location.pathname.split('/')
         // 🖨️ definindo a lista de itens do menu 🖨️ 
         const menuItens = [
             {
