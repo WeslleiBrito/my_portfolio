@@ -9,7 +9,7 @@ class HeaderComponent extends HTMLElement {
         /*  essa variavel armazena nome do arquivo html, 
             peciso para poder estilizar os elementos da lista
         */
-        const paginaAtual = window.location.pathname.split('/').pop().split('.')[0]
+        let paginaAtual = window.location.pathname.split('/').pop().split('.')[0]
        
         // 🖨️ definindo a lista de itens do menu 🖨️ 
         const menuItens = [
