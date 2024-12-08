@@ -10,8 +10,6 @@ class HeaderComponent extends HTMLElement {
             peciso para poder estilizar os elementos da lista
         */
         const paginaAtual = window.location.pathname.split('/').pop().split('.')[0]
-        const listaPath = window.location.pathname.split('/')
-        alert(`>>> ${paginaAtual} <<<`)
        
         // 🖨️ definindo a lista de itens do menu 🖨️ 
         const menuItens = [
@@ -37,22 +35,25 @@ class HeaderComponent extends HTMLElement {
            posição do nome do documento  
         */
         const index = menuItens.findIndex(item => item.href === paginaAtual)
-
-        if(index){
+      
+        if(index >= 0){
             document.title = menuItens[index].nome
         }else{
             document.title = menuItens[0].nome
+            paginaAtual = menuItens[0].href
         }
         
 
         // ⚙️ Gerando os itens da lista separadamente ⚙️
 
         const renderListaMenu = menuItens.map(
-            item => `
+            (item) => {
+                return  `
                 <li id="item-opcao${paginaAtual === item.href ? '-active' : ''}">
-                    <a href="${item.href}">${item.nome}</a>
+                    <a href="${item.href}.html">${item.nome}</a>
                 </li>
             `
+            }
         ).join('')
 
         // 👇 utilizando uma das propriedades do HTMLElement 👇
