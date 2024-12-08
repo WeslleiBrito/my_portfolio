@@ -2,47 +2,46 @@
 isso vai permitir que eu reaproveite esse elemento em todas as partes do meu projeto, sem 
 precisar ficar recriando o conteudo em todas as páginas ♻️*/
 
+/*  essa variavel armazena nome do arquivo html, 
+            peciso para poder estilizar os elementos da lista
+        */
+let paginaAtual = window.location.pathname.split('/').pop().split('.')[0]
+
+// 🖨️ definindo a lista de itens do menu 🖨️ 
+const menuItens = [
+    {
+        nome: "Sobre mim",
+        href: "index"
+    },
+    {
+        nome: "Formação",
+        href: "formacao"
+    },
+    {
+        nome: "Portfólio",
+        href: "portfolio"
+    },
+    {
+        nome: "Contato",
+        href: "contato"
+    }
+]
+
+/* Para tornar a mudança do titulo da página dinamica inserir essa lógica que identifica a
+    posição do nome do documento  
+*/
+const index = menuItens.findIndex(item => item.href === paginaAtual)
+
+if(index >= 0){
+    document.title = menuItens[index].nome
+}else{
+    document.title = menuItens[0].nome
+    paginaAtual = menuItens[0].href
+}
+
 class HeaderComponent extends HTMLElement {
 
     connectedCallback() {
-
-        /*  essa variavel armazena nome do arquivo html, 
-            peciso para poder estilizar os elementos da lista
-        */
-        const paginaAtual = window.location.pathname.split('/').pop().split('.')[0]
-       
-        // 🖨️ definindo a lista de itens do menu 🖨️ 
-        const menuItens = [
-            {
-                nome: "Sobre mim",
-                href: "index"
-            },
-            {
-                nome: "Formação",
-                href: "formacao"
-            },
-            {
-                nome: "Portfólio",
-                href: "portfolio"
-            },
-            {
-                nome: "Contato",
-                href: "contato"
-            }
-        ]
-
-        /* Para tornar a mudança do titulo da página dinamica inserir essa lógica que identifica a
-           posição do nome do documento  
-        */
-        const index = menuItens.findIndex(item => item.href === paginaAtual)
-      
-        if(index >= 0){
-            document.title = menuItens[index].nome
-        }else{
-            document.title = menuItens[0].nome
-            paginaAtual = menuItens[0].href
-        }
-        
 
         // ⚙️ Gerando os itens da lista separadamente ⚙️
 
