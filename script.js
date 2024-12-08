@@ -10,7 +10,7 @@ class HeaderComponent extends HTMLElement {
             peciso para poder estilizar os elementos da lista
         */
         const paginaAtual = window.location.pathname.split('/').pop()
-        
+        console.log(paginaAtual)
         // 🖨️ definindo a lista de itens do menu 🖨️ 
         const menuItens = [
             {
@@ -34,6 +34,7 @@ class HeaderComponent extends HTMLElement {
         /* Para tornar a mudança do titulo da página dinamica inserir essa lógica que identifica a
            posição do nome do documento  
         */
+       
         document.title = menuItens[menuItens.findIndex(item => item.href === paginaAtual)].nome
 
         // ⚙️ Gerando os itens da lista separadamente ⚙️
