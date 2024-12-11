@@ -213,17 +213,27 @@ class CardPortfolio extends HTMLElement {
         const itens = portfolioItens.map((item) => {
             return `
                 <li class="item-portfolio">
-                    <a href=${item.link} target="_blank"><img src="${item.logo}" alt="${item.alt}"/></a>
-                    <h6 class="nome">${item.nome}</h6>
-                    <p>${item.descricao}</p>
-                    <h6>Tecnologias</h6>
-                    <ul>
-                        ${item.tecnologias.map((tecnologia) => {
-                            return `
-                                <li>${tecnologia}</li>
-                            `
-                        }).join('')}
-                    </ul>
+                    <img class="logo-projeto" src="${item.logo}" alt="${item.alt}"/>
+                    <section class="conteudo">
+                        <h6 class="nome">${item.nome}</h6>
+                        <h6 class="titulo">Descrição</h6>
+                        <p class="descricao">${item.descricao}</p>
+                        <h6 class="titulo">Tecnologias utilizadas</h6>
+                        <ul class="lista-tecnologia">
+                            ${item.tecnologias.map((tecnologia) => {
+                                return `
+                                    <li class="item-tecnologia">
+                                        <img src="../img/check.png" alt=check"/>
+                                        <p>${tecnologia}</p>
+                                    </li>
+                                `
+                            }).join('')}
+                        </ul>
+                         <a class="acessar" href=${item.link} target="_blank">
+                            <h3>Acessar</h3>
+                            <img src="../img/double-arrow.png" alt="seta dupla apontando para direita"/>
+                         </a>
+                    </section>
                 </li>
             `
         }).join('')
