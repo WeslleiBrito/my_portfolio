@@ -27,6 +27,7 @@ const menuItens = [
     }
 ]
 
+
 /* Para tornar a mudança do titulo da página dinamica inserir essa lógica que identifica a
     posição do nome do documento  
 */
@@ -155,3 +156,95 @@ class CardFormacao extends HTMLElement {
 }
 
 customElements.define('card-formacao-component', CardFormacao)
+
+
+class CardPortfolio extends HTMLElement {
+
+    connectedCallback () {
+        const portfolioItens = [
+            {
+                logo: "../img/logo-portfolios/logo-lab-escola.png",
+                alt: "logo da lab escola",
+                nome: "LabEscola",
+                descricao: "Vamos começar nossa jornada no desenvolvimento web criando um sistema de escola de programação,\
+                porque aqui gostamos de metalinguagem!",
+                ano: 2022,
+                tecnologias: [
+                    "HTML",
+                    "CSS",
+                    "Javascript"
+                ],
+                link: "https://slimy-dinner.surge.sh/index.html"
+            },
+            {
+                logo: '../img/logo-portfolios/astronauta.png',
+                alt: "logo de um astronauta",
+                nome: "Space Run",
+                descricao: "Esse é o projeto de introdução aos fundamentos do React. Aqui, vamos praticar\
+                a estrutura do que consideramos a estrutura do React. O objetivo é que funcione como o front-end de um E-Commerce",
+                ano: 2023,
+                tecnologias: [
+                    "React",
+                    "Styled-components"
+                ],
+                link: "https://run-space-wes.surge.sh/"
+            },
+            {
+                logo: '../img/logo-portfolios/logo_pokemon.svg',
+                alt: "logo com o nome pokémon",
+                nome: "Poke API",
+                descricao: "O Projeto React e APIs é um site de pokémons que possui três páginas: Home, Pokedex e Detalhes. \
+                O projeto está subdivido em temas de acordo com os conteúdos que estudado durante o Módulo 2 - Frontend. \
+                Este projeto terá como fonte de dados para a sua criação a Poke Api, uma Api pública, muito usada para \
+                aplicações focadas em aprendizado de programação e também usada em cases de processos seletivos.",
+                ano: 2023,
+                tecnologias: [
+                    "React",
+                    "React Router",
+                    "Styled-components",
+                    "React Context",
+                    "Axios"
+                ],
+                link: "https://pokedex-wesllei.surge.sh/"
+            },
+        
+        ]
+
+        const itens = portfolioItens.map((item) => {
+            return `
+                <li class="item-portfolio">
+                    <img class="logo-projeto" src="${item.logo}" alt="${item.alt}"/>
+                    <section class="conteudo">
+                        <h6 class="nome">${item.nome}</h6>
+                        <h6 class="titulo">Descrição</h6>
+                        <p class="descricao">${item.descricao}</p>
+                        <h6 class="titulo">Tecnologias utilizadas</h6>
+                        <ul class="lista-tecnologia">
+                            ${item.tecnologias.map((tecnologia) => {
+                                return `
+                                    <li class="item-tecnologia">
+                                        <img src="../img/check.png" alt=check"/>
+                                        <p>${tecnologia}</p>
+                                    </li>
+                                `
+                            }).join('')}
+                        </ul>
+                         <a class="acessar" href=${item.link} target="_blank">
+                            <h3>Acessar</h3>
+                            <img src="../img/double-arrow.png" alt="seta dupla apontando para direita"/>
+                         </a>
+                    </section>
+                </li>
+            `
+        }).join('')
+
+        this.innerHTML = `
+            <ul id="lista-portfolio">
+                ${itens}
+            </ul>
+        `
+
+    }
+}
+
+customElements.define('card-portfolio', CardPortfolio)
