@@ -193,10 +193,8 @@ class CardPortfolio extends HTMLElement {
                 logo: '../img/logo-portfolios/logo_pokemon.svg',
                 alt: "logo com o nome pokémon",
                 nome: "Poke API",
-                descricao: "O Projeto React e APIs é um site de pokémons que possui três páginas: Home, Pokedex e Detalhes. \
-                O projeto está subdivido em temas de acordo com os conteúdos que estudado durante o Módulo 2 - Frontend. \
-                Este projeto terá como fonte de dados para a sua criação a Poke Api, uma Api pública, muito usada para \
-                aplicações focadas em aprendizado de programação e também usada em cases de processos seletivos.",
+                descricao: "O Projeto React e APIs é um site de pokémons que possui três páginas: Home, Pokedex e Detalhes.\
+                Aplicações focadas em aprendizado de programação e também usada em cases de processos seletivos.",
                 ano: 2023,
                 tecnologias: [
                     "React",
